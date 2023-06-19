@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <table>
+        <tr>
+            <th>Document ID</th>
+            <th>RSV</th>
+            <th>Class</th>
+        </tr>
+        {% for item in response %}
+        <tr>
+            <td>{{ item['document_id'] }}</td>
+            <td>{{ item['rsv'] }}</td>
+            <td>{{ item['class'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

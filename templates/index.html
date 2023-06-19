@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Engine</title>
+</head>
+<body>
+    <h1>Search Engine</h1>
+    <form action="/search" method="POST">
+        <input type="text" name="query" placeholder="Masukkan query" required>
+        <select name="operator">
+            <option value="OR">OR</option>
+            <option value="AND">AND</option>
+            <option value="NOT">NOT</option>
+        </select>
+        <input type="submit" value="Search">
+    </form>
+</body>
+</html>
