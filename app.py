@@ -155,7 +155,7 @@ if __name__ == '__main__':
         ("Tanding pertama Persema Persebaya Malang", "olahraga"),
         ("Besar wasit tanding sepakbola adil", "olahraga"),
         ("Partai Demokrat menang pemilu 2009 figur SBY", "politik"),
-        ("Tanding sepakbola Persebaya kampanye pemilu 2009 tunda", "olahraga")
+        ("Tanding sepakbola Persebaya kampanye pemilu 2009 tunda", "?")
     ]
 
     retrieval = ExtendedBooleanRetrieval([doc[0] for doc in documents])
