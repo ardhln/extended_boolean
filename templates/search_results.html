@@ -1,23 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Search Results</title>
+    <title>Hasil Pencarian</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        
+        h1 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        
+        form {
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        
+        table {
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Search Results</h1>
-    <table>
-        <tr>
-            <th>Document ID</th>
-            <th>RSV</th>
-            <th>Class</th>
-        </tr>
-        {% for item in response %}
-        <tr>
-            <td>{{ item['document_id'] }}</td>
-            <td>{{ item['rsv'] }}</td>
-            <td>{{ item['class'] }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    <div class="container">
+        <h1 class="text-center">Search Results</h1>
+        <form class="text-center" action="/search" method="POST">
+            <div class="form-group">
+                <input type="text" name="query" class="form-control" placeholder="Masukkan query" value="{% if 'query' in session %}{{ session['query'] }}{% endif %}" required>
+            </div>
+            <div class="form-group">
+                <select name="operator" class="form-control">
+                    <option value="OR">OR</option>
+                    <option value="AND">AND</option>
+                    <option value="NOT">NOT</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Document ID</th>
+                    <th>Kecocokan</th>
+                    <th>Class</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in response %}
+                <tr>
+                    <td>{{ item['document_id'] }}</td>
+                    <td>{{ item['rsv'] }}</td>
+                    <td>{{ item['class'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
